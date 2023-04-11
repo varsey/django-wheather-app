@@ -17,8 +17,7 @@ def temp_here(request):
 
 def get_temp(location):
     endpoint = "https://api.open-meteo.com/v1/forecast"
-    api_request = f"{endpoint}?latitude={location[0]}&longitude={location[1]}&hourly=temperature_2m" \
-                  f"&temperature_unit=fahrenheit"
+    api_request = f"{endpoint}?latitude={location[0]}&longitude={location[1]}&hourly=temperature_2m"
     now = datetime.now()
     hour = now.hour
     meteo_data = requests.get(api_request).json()
