@@ -9,9 +9,13 @@ from meteo.models import Worldcities
 
 def temp_here(request):
     location = geocoder.ip('me').latlng
+    city = geocoder.ip('me').city
     temp = get_temp(location)
     template = loader.get_template('index.html')
-    context = {'temp': temp}
+    context = {
+        'city': city,
+        'temp': temp
+    }
     return HttpResponse(template.render(context, request))
 
 
